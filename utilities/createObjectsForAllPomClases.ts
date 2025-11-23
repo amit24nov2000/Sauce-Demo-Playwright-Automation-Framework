@@ -1,10 +1,11 @@
 import {Page} from '@playwright/test';
 import { testing } from '../Pages/testing';
 import test from 'node:test';
+import { inventryPage } from '../Pages/inventry.page';
 
 export class CreateObjectForAllPomClases{
-    readonly obj1: testing;
+    readonly inventryPage: inventryPage;
     constructor(page:Page){
-        this.obj1=new testing(page);
+        this.inventryPage=new inventryPage(page);
     }
 }
