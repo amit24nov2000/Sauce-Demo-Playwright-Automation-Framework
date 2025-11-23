@@ -1,6 +1,8 @@
-import { test, expect } from '@playwright/test';
+import { test } from '../../utilities/fixture';
+import { expect } from '@playwright/test';
 
-test('has title', async ({ page }) => {
+test('has title', async ({ page, AllObjects}) => {
+  
   await page.goto('https://www.saucedemo.com/inventory.html');
 
   // Expect a title "to contain" a substring.
