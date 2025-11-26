@@ -19,6 +19,10 @@
 
 import { test } from "../../Fixtures/BaseFixtures/PomObjects";
 
+/* ---------------------------------------------------------------------------
+ * AUTHENTICATION TESTS
+ * --------------------------------------------------------------------------- */
+
 /**
  * Login Test - Authentication Setup
  *

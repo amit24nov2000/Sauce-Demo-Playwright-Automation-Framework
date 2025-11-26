@@ -104,6 +104,34 @@ export default defineConfig({
   ],
 
   /* -------------------------------------------------------------------------
+   * VISUAL TESTING / SNAPSHOT CONFIGURATION
+   * ------------------------------------------------------------------------- */
+
+  /**
+   * Snapshot Path Configuration
+   *
+   * Defines where visual test snapshots are stored.
+   * Uses a centralized folder structure for better organization.
+   *
+   * Directory Structure:
+   * tests/snapshots/
+   * └── {testFileName}-snapshots/
+   *     └── {snapshotName}-{projectName}-{platform}.png
+   *
+   * @see https://playwright.dev/docs/test-snapshots
+   */
+  snapshotDir: './tests/snapshots',
+
+  /**
+   * Snapshot Path Template
+   *
+   * Customizes the snapshot file naming convention.
+   * Available tokens: {snapshotDir}, {testFileDir}, {testFileName},
+   * {testFilePath}, {testName}, {projectName}, {platform}, {arg}, {ext}
+   */
+  snapshotPathTemplate: '{snapshotDir}/{testFileName}-snapshots/{arg}-{projectName}{ext}',
+
+  /* -------------------------------------------------------------------------
    * SHARED TEST OPTIONS
    * ------------------------------------------------------------------------- */
 
@@ -126,6 +154,37 @@ export default defineConfig({
      * @see https://playwright.dev/docs/trace-viewer
      */
     trace: 'retain-on-failure',
+  },
+
+  /**
+   * Expect Configuration
+   *
+   * Settings for assertions including visual comparison options.
+   * @see https://playwright.dev/docs/test-configuration#expect-options
+   */
+  expect: {
+    /**
+     * Visual Comparison Settings
+     *
+     * Configure how screenshot comparisons are performed:
+     * - maxDiffPixels: Maximum pixels that can differ
+     * - maxDiffPixelRatio: Maximum ratio of differing pixels (0-1)
+     * - threshold: Per-pixel color difference threshold (0-1)
+     * - animations: How to handle animations during screenshots
+     */
+    toHaveScreenshot: {
+      /** Maximum allowed differing pixels (absolute number) */
+      maxDiffPixels: 100,
+
+      /** Animation handling: 'disabled' freezes animations */
+      animations: 'disabled',
+
+      /** Scaling behavior: 'css' uses CSS pixels */
+      scale: 'css'
+    },
+
+    /** Timeout for expect assertions (in milliseconds) */
+    timeout: 10000
   },
 
   /* -------------------------------------------------------------------------
