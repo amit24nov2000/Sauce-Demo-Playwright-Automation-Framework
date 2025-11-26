@@ -1,0 +1,22 @@
+{
+    "_comment": "Mock API route configurations for testing - Define URL patterns, methods, and mock responses",
+    "mockApiRoutes": [
+        {
+            "url": "**/inventory.json",
+            "method": "GET",
+            "body": {
+                "inventory": [
+                    {
+                        "id": 1,
+                        "name": "Mocked Product",
+                        "desc": "This is a mocked product from API Router",
+                        "price": 99.99
+                    }
+                ]
+            },
+            "status": 200,
+            "contentType": "application/json"
+        }
+    ]
+}
+

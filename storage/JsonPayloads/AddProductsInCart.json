@@ -1,3 +1,7 @@
 {
-    "productsToAdd":["Sauce-Labs-Backpack","Sauce-Labs-Bike-Light"]
+    "_comment": "Test data for add to cart operations - Product names should be hyphenated",
+    "productsToAdd": [
+        "Sauce-Labs-Backpack",
+        "Sauce-Labs-Bike-Light"
+    ]
 }
